@@ -1,0 +1,34 @@
+[project]
+name = "ollama-vision-service"
+version = "0.1.0"
+description = "A lightweight REST API wrapper around Ollama vision models for CI/CD and automation."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Your Name", email = "you@example.com"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "httpx>=0.27.0",
+]
+
+[project.optional-dependencies]
+api = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.6",
+    "pydantic>=2.9.1",
+    "python-multipart>=0.0.9",
+]
+
+[project.scripts]
+ollama-vision-serve = "ollama_vision_service.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
